@@ -1,8 +1,10 @@
 import Link from "next/link";
 
-export default function Hero() {
-  return (
-    <section
+import React from 'react';
+
+const Banner = () => {
+    return (
+          <section
       className="relative min-h-[70vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center justify-center text-center text-white px-4"
       style={{
         backgroundImage:
@@ -32,5 +34,7 @@ export default function Hero() {
         </Link>
       </div>
     </section>
-  );
-}
+    );
+};
+
+export default Banner;

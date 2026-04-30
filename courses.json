@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.9,
+    "level": "Beginner",
+    "description": "Learn full-stack web development from scratch.",
+    "image": "https://i.postimg.cc/3N7YvqvG/web-dev.jpg",
+    "category": "Development"
+  },
+  {
+    "id": 2,
+    "title": "UI UX Design Masterclass",
+    "instructor": "Sarah Khan",
+    "duration": "14 hours",
+    "rating": 4.8,
+    "level": "Intermediate",
+    "description": "Master modern UI UX design principles.",
+    "image": "https://i.postimg.cc/W3f3b6qk/uiux.jpg",
+    "category": "Design"
+  },
+  {
+    "id": 3,
+    "title": "Digital Marketing Strategy",
+    "instructor": "David Lee",
+    "duration": "12 hours",
+    "rating": 4.7,
+    "level": "Beginner",
+    "description": "Learn SEO, ads, branding and marketing funnels.",
+    "image": "https://i.postimg.cc/zfQp6j8k/marketing.jpg",
+    "category": "Marketing"
+  },
+  {
+    "id": 4,
+    "title": "Advanced React and Next.js",
+    "instructor": "Emily Carter",
+    "duration": "18 hours",
+    "rating": 4.95,
+    "level": "Advanced",
+    "description": "Build production-ready apps with React and Next.js.",
+    "image": "https://i.postimg.cc/RZ7M6n3c/nextjs.jpg",
+    "category": "Development"
+  },
+  {
+    "id": 5,
+    "title": "Graphic Design with Canva",
+    "instructor": "Nusrat Jahan",
+    "duration": "8 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Create stunning graphics for social media.",
+    "image": "https://i.postimg.cc/NFQk3JxL/canva.jpg",
+    "category": "Design"
+  },
+  {
+    "id": 6,
+    "title": "Python for Beginners",
+    "instructor": "Michael Smith",
+    "duration": "16 hours",
+    "rating": 4.85,
+    "level": "Beginner",
+    "description": "Start programming with Python from zero.",
+    "image": "https://i.postimg.cc/MZ6f7xXm/python.jpg",
+    "category": "Programming"
+  }
+]

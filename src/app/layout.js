@@ -2,6 +2,8 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+// import Navbar from "@/components/Navbar";
+// import Footer from "@/componePixGen - AI Imagents/Footer";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -9,7 +11,7 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "PixGen - AI Image Generator",
+  title: " Generator",
   description: "Generate stunning AI images instantly",
 };
 

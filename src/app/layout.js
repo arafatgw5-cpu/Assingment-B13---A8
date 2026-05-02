@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${outfit.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-[var(--font-outfit)]">
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
         <Footer />
       </body>

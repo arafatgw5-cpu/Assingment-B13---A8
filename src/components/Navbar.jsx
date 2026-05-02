@@ -1,64 +1,58 @@
 "use client";
 
 import Link from "next/link";
-import { BookOpen, Menu, X } from "lucide-react";
-import { useState } from "react";
+// import { authClient } from "@/lib/auth-client";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  // const { data: session, isPending } = authClient.useSession();
 
-  const links = [
-    { name: "Home", path: "/" },
-    { name: "Courses", path: "/courses" },
-    { name: "My Profile", path: "/profile" },
-  ];
+  const handleLogout = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          window.location.href = "/";
+        },
+      },
+    });
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+    <nav className="bg-base-200 px-6 py-4 flex justify-between items-center">
+      <Link href="/" className="text-xl font-bold">
+        SkillSphere
+      </Link>
 
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white">
-              <BookOpen size={20} />
-            </div>
-            <span className="text-xl font-bold">SkillSphere</span>
-          </Link>
+      <div className="flex gap-4 items-center">
+        <Link href="/">Home</Link>
+        <Link href="/courses">Courses</Link>
+        <Link href="/my-profile">My Profile</Link>
 
-          <div className="hidden md:flex items-center gap-8">
-            {links.map((link) => (
-              <Link
-                key={link.path}
-                href={link.path}
-                className="text-sm font-medium text-gray-600 hover:text-blue-600"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+        {/* {isPending ? ( */}
+          <span className="loading loading-spinner loading-sm"></span>
+        {/* ) : session?.user ?  */}
+        {/* ( */}
+          <>
+            <img
+              src={session.user.image || "https://i.ibb.co.com/4pDNDk1/avatar.png"}
+              alt="user"
+              className="w-9 h-9 rounded-full object-cover"
+            />
 
-          <button onClick={() => setOpen(!open)} className="md:hidden">
-            {open ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+            <button onClick={handleLogout} className="btn btn-sm btn-error text-white">
+              Logout
+            </button>
+          {/* </>
+        // ) : (
+          <> */}
+            <Link href="/login" className="btn btn-sm btn-outline">
+              Login
+            </Link>
+            <Link href="/register" className="btn btn-sm btn-warning">
+              Register
+            </Link>
+          </>
+        {/* )} */}
       </div>
-
-      {open && (
-        <div className="md:hidden bg-white border-b">
-          <div className="px-4 py-5 space-y-4">
-            {links.map((link) => (
-              <Link
-                key={link.path}
-                href={link.path}
-                onClick={() => setOpen(false)}
-                className="block text-gray-700 font-medium"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
     </nav>
   );
 }

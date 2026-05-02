@@ -1,4 +1,4 @@
-import Banner from "@/components/Banner";
+import Banner from "@/components/Hero";
 import CourseCard from "@/components/CourseCard";
 
 const page = async () => {

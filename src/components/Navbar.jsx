@@ -1,47 +1,62 @@
 "use client";
 
 import Link from "next/link";
+import { BookOpen, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const links = (
-    <>
-      <Link href="/">Home</Link>
-      <Link href="/courses">Courses</Link>
-      <Link href="/my-profile">My Profile</Link>
-      <Link href="/login">Login</Link>
-      <Link href="/register">Register</Link>
-    </>
-  );
+  const links = [
+    { name: "Home", path: "/" },
+    { name: "Courses", path: "/courses" },
+    { name: "My Profile", path: "/profile" },
+  ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-base-200 shadow-sm">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <Link href="/" className="text-xl font-bold">
-          SkillSphere
-        </Link>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
 
-        {/* Desktop Menu */}
-        <div className="hidden items-center gap-6 text-sm font-medium md:flex">
-          {links}
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white">
+              <BookOpen size={20} />
+            </div>
+            <span className="text-xl font-bold">SkillSphere</span>
+          </Link>
+
+          <div className="hidden md:flex items-center gap-8">
+            {links.map((link) => (
+              <Link
+                key={link.path}
+                href={link.path}
+                className="text-sm font-medium text-gray-600 hover:text-blue-600"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+
+          <button onClick={() => setOpen(!open)} className="md:hidden">
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-
-        {/* Mobile Button */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="text-2xl md:hidden"
-          aria-label="Toggle Menu"
-        >
-          {open ? "✕" : "☰"}
-        </button>
       </div>
 
-      {/* Mobile Menu */}
       {open && (
-        <div className="flex flex-col gap-4 border-t border-base-300 px-5 py-4 text-sm font-medium md:hidden">
-          {links}
+        <div className="md:hidden bg-white border-b">
+          <div className="px-4 py-5 space-y-4">
+            {links.map((link) => (
+              <Link
+                key={link.path}
+                href={link.path}
+                onClick={() => setOpen(false)}
+                className="block text-gray-700 font-medium"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </nav>
